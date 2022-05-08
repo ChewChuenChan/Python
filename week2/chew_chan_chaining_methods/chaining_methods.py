@@ -38,10 +38,7 @@ class User:
             self.is_rewards_member = True
             self.gold_card_points = 200
             return self
-        # self.is_rewards_member = True
-        # self.gold_card_points = 200
-        # return self
-
+        
 # Add the spend_points method to the User class
 # Decrease the user's points by the amount of specified.
 # Bonus: Make sure they have enough points to sepnd that amount and handle appropriately
