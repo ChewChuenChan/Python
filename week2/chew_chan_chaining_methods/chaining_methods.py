@@ -23,7 +23,7 @@ class User:
         print(f"My email is {self.email}.")
         print(f"I am {self.age} year old.")
         print(f"I am reward member. It is {self.is_rewards_member}")
-        print(f"I have {self.gold_card_points} gold card points.")
+        print(f"I have {self.gold_card_points} gold card points.","\n")
         return (self)
 
 # Add the enroll method to the User class
@@ -32,7 +32,7 @@ class User:
 # Add return self for chaining
     def enroll(self):
         if self.is_rewards_member== True:
-            print(f"User already a member")
+            print(f"User already a member","\n")
             return self
         else:
             self.is_rewards_member = True
@@ -48,10 +48,10 @@ class User:
             if self.gold_card_points > 1:
                 pass
             else:
-                print(f"You have 1 point left. It's time to enroll more points")
+                print(f"You have 1 point left. It's time to enroll more points","\n")
         else:
             print(f"Dear {self.first_name}, You only have {self.gold_card_points} gold coins left")
-            print(f"Not enough points,please enroll more points")
+            print(f"Not enough points,please enroll more points","\n")
         return self
 
 
