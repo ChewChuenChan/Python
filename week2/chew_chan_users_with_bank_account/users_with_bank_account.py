@@ -113,4 +113,10 @@ alice_checking.account.account_type = "Checking"
 alice_saving.account.account_type = "Saving"
 alice_checking.make_deposit(10.66).display_user_balance()
 alice_saving.make_withdrawal(10.11).display_user_balance()
-alice_checking.transfer_money(20,alice_saving)
+
+# Bonus:Add a transfer_money method that takes an amount and a different User instance, 
+# Transfer money from the user's account into another user's account
+simon_saving_account=BankAccount(0.05,600.23)
+simon_saving=User("Simon","simon@gmail.com",simon_saving_account)
+simon_saving.account.account_type = "Saving"
+alice_checking.transfer_money(20,simon_saving)
