@@ -7,7 +7,7 @@
 
 class BankAccount:
     all_accounts=[]
-    def __init__(self, int_rate=float, balance=float): 
+    def __init__(self, int_rate=float, balance=float(0)): 
         self.int_rate = int_rate
         self.balance = balance
         BankAccount.all_accounts.append(self)
