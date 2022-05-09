@@ -1,6 +1,5 @@
-# Update your existing User class to have an association with the BankAccount class. 
+# Update existing User class to have an association with the BankAccount class. 
 
-from urllib.parse import non_hierarchical
 
 
 class BankAccount:
@@ -72,24 +71,31 @@ class BankAccount:
             account.display_account_info()
 
 
+
+# Update the User class__init__ method
 class User:
     def __init__(self,name=None,email=None, BankAccount=None):
         self.name = name
         self.email = email
         self.account = BankAccount
         
+# Add make_deposit method that calls on it's bank account's instance methods        
     def make_deposit(self,amount):
         self.account.deposit(amount)
         return self
 
+# Add make_withdrawal method that calls on it's bank account's instance methods
     def make_withdrawal(self,amount):
         self.account.withdraw(amount)
         return self
 
+# Add display_user_balance method that display user's account balance
     def display_user_balance(self):
         print(f"User = {self.name}  {self.account.account_type} = ${round(self.account.balance,2)}")
         return self
 
+# Bonus:Add a transfer_money method that takes an amount and a different User instance, 
+# Transfer money from the user's account into another user's account
     def transfer_money(self,amount,other_user):
         self.account.balance = self.account.balance - amount
         other_user.account.balance = other_user.account.balance + amount
@@ -97,6 +103,8 @@ class User:
         other_user.display_user_balance()
         return self
 
+# Bonus: Allow a user to have multiple accounts: 
+# update methods so the user has to specify which account they are withdrawing or depositing to
 Checking=BankAccount(0.02,100.55)
 Saving=BankAccount(0.05,500.45)
 alice_checking=User("Alice","aliceccc@gmail.com",Checking)
