@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <title>TV Shows Dashboard</title>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-dark bg-dark text-white  p-3 d-flex justify-content-between">
+            <h1 class="display-3">{{user.last_name}}, {{user.first_name}} !!!</h1>
+            <a href="/logout" class="btn btn-warning m-2">Logout</a>
+        </nav>
+        <div class="container">
+            {% if error%}
+                {%for msg in error%}
+                    <p class="text-danger">{{msg}}</p>
+                {% endfor%}
+            {% endif%}
+        </div>
+        <div class=" container mt-5">
+            <h3>All TV Shows</h3>
+            <div class="container ">
+                <table class="table table-striped table-hover table-bordered">
+                    <thead>
+                        <tr>
+                        <th scope="col">Title</th>
+                        <th scope="col">Network</th>
+                        <th scope="col">Release Date</th>
+                        <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for s in all_shows %}
+                            <tr>
+                            <td>{{s.title}}</td>
+                            <td>{{s.network}}</td>
+                            <td>{{s.release_date.strftime('%B %d %Y')}}</td>
+                            <td>
+                                <div class="d-flex justify-content-around ">
+                                    <a href="/show/{{s.id}}">View</a> |
+                                    <a href ="/show/edit/{{s.id}}">edit</a> |
+                                    <a href ="/show/delete/{{s.id}}">delete</a>
+                                </div>
+                            </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <div class="block d-flex justify-content-end">
+                    <a href="/show/new" class="btn btn-success m-2 ">Add a New Show</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>
